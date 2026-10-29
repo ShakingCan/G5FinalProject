@@ -35,10 +35,7 @@ namespace G5FinalProject
 
         public Books(String title, String briefdescription, String isbn, String category, String author, int availablecopies, String status)
         {
-
-
-
-
+                
             TITLE = title;
             BRIEFDESCRIPTION = briefdescription;
             ISBN1 = isbn;
@@ -46,6 +43,71 @@ namespace G5FinalProject
             AUTHOR = author;
             AVAILABLECOPIES = availablecopies;
             STATUS = status;
+        }
+        public void SearchByTitle(String title)
+        {
+            /*
+           for (int i = List.Size(); i<0; i--){
+            if(List[i].TITLE == title){
+            //show book with that title
+            }    
+            }
+
+
+
+            */
+        }
+        public void SearchByAuthor(String author)
+        {
+            /*
+        for (int i = List.Size(); i<0; i--){
+         if(List[i].AUTHOR == author){
+         //show book with that auhotr
+         }    
+         }
+
+
+
+         */
+        }
+        public void SearchByCategory(String categoruy)
+        {
+            /*
+        for (int i = List.Size(); i<0; i--){
+         if(List[i].CATEGORY == title){
+         //show book with that category
+         }    
+         }
+
+
+
+         */
+        }
+        public void SearchByISBN(String isbn)
+        {
+            /*
+        for (int i = List.Size(); i<0; i--){
+         if(List[i].ISBN == isbn){
+         //show book with that isbn
+         }    
+         }
+
+
+
+         */
+        }
+        public void SearchByStatus(String status)
+        {
+            /*
+        for (int i = List.Size(); i<0; i--){
+         if(List[i].STATUS == status){
+         //show book with that status
+         }    
+         }
+
+
+
+         */
         }
 
 

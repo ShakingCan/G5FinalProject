@@ -8,29 +8,33 @@ namespace G5FinalProject
     internal class Student
     {
         private String Studentid;
-
+        public String STUDENTID { get => Studentid; set => Studentid = value; }
 
         //name section
         private String Firstname;
         private String Middlename;
         private String Lastname;
+        private String Fullname;
+
+
 
         public String FIRSTNAME { get => Firstname; set => Firstname = value; }
         public String MIDDLENAME { get => Middlename; set => Middlename = value; }
         public String LASTNAME { get => Lastname; set => Lastname = value; }
 
+        public String FULLNAME { get => Fullname; set => Fullname = value; }
+
 
         //the address section
         private String Houseno;
         private String Street;
-        private String Municipality;
         private String City;
         private String Province;
         private String Zipcode;
 
         public String HOUSENO { get => Houseno; set => Houseno = value; }
         public String STREET { get => Street; set => Street = value; }
-        public String MUNICIPALITY { get => Municipality; set => Municipality = value; }
+      
         public String CITY { get => City; set => City = value; }
         public String PROVINCE { get => Province; set => Province = value; }
         public String ZIPCODE { get => Zipcode; set => Zipcode = value; }
@@ -68,7 +72,7 @@ namespace G5FinalProject
         public String G2EMAIL { get => G2Email; set => G2Email = value; }
         public String G2LANDLINE { get => G2Landline; set => G2Landline = value; }
 
-        public void SearchStudent(String Studentid)
+        public void SearchStudentByID(String Studentid)
         {
             //there should be a list first before we get to implement this but the logic can be laid out
 
@@ -76,22 +80,26 @@ namespace G5FinalProject
              logic for searching a student by id 
              
              for (int i = list.size(); i<0; i--){
-                if(list[i].Studentid == Studentid){
+                if(list[i].STUDENTID == Studentid){
                 //return or display whatever
                 }
             }             
+             */
+        }
+        public void SearchStudentByName(String Studentname)
+        {
 
-            logic for searching a student by name
+            /*
+           logic for searching a student by name
             for(int i =list.size(); i<0; i--){
-            if(list[i].Studentname == firstname||list[i].Studentname == middlename||list[i].Studentname == lastname){
+            if(list[i].FIRSTNAME == Studentname ||list[i].MIDDENAME == Studentname||list[i].LASTNAME == Studentname||list[i].FULLNAME == Studentname){
             //return or display whatever
 
             }
-            }
-
-
+            }           
              */
         }
+
 
         public Student()
         {
@@ -101,7 +109,7 @@ namespace G5FinalProject
             Lastname = "";
             Houseno = "";
             Street = "";
-            Municipality = "";
+            
             City = "";
             Province = "";
             Zipcode = "";
@@ -122,15 +130,16 @@ namespace G5FinalProject
         }
 
 
-        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String municipality, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline)
+        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline)
         {
             Studentid = studentid;
             Firstname = firstname;
             Middlename = middlename;
             Lastname = lastname;
+            Fullname = firstname + " " + middlename + " " + lastname;
             Houseno = houseno;
             Street = street;
-            Municipality = municipality;
+            
             City = city;
             Province = province;
             Zipcode = zipcode;
@@ -144,15 +153,16 @@ namespace G5FinalProject
             
         }
 
-        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String municipality, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline, String g2name, String g2Contactno, String g2Email, String g2Landline)
+        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline, String g2name, String g2Contactno, String g2Email, String g2Landline)
         {
             Studentid = studentid;
             Firstname = firstname;
             Middlename = middlename;
+            Fullname = firstname + " " + middlename + " " + lastname;
             Lastname = lastname;
             Houseno = houseno;
             Street = street;
-            Municipality = municipality;
+           
             City = city;
             Province = province;
             Zipcode = zipcode;
