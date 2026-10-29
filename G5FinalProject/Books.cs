@@ -22,6 +22,32 @@ namespace G5FinalProject
         public int AVAILABLECOPIES { get => Availablecopies; set => Availablecopies = value; }
         public String STATUS { get => Status; set => Status = value; }
 
+        public Books()
+        {
+            TITLE = "";
+            BRIEFDESCRIPTION = "";
+            ISBN1 = "";
+            CATEGORY = "";
+            AUTHOR = "";
+            AVAILABLECOPIES = 0;
+            STATUS = "";
+        }
+
+        public Books(String title, String briefdescription, String isbn, String category, String author, int availablecopies, String status)
+        {
+
+
+
+
+            TITLE = title;
+            BRIEFDESCRIPTION = briefdescription;
+            ISBN1 = isbn;
+            CATEGORY = category;
+            AUTHOR = author;
+            AVAILABLECOPIES = availablecopies;
+            STATUS = status;
+        }
+
 
 
     }

@@ -92,10 +92,83 @@ namespace G5FinalProject
 
              */
         }
-       
+
+        public Student()
+        {
+            Studentid = "";
+            Firstname = "";
+            Middlename = "";
+            Lastname = "";
+            Houseno = "";
+            Street = "";
+            Municipality = "";
+            City = "";
+            Province = "";
+            Zipcode = "";
+            Contactno = "";
+            Email = "";
+            Landline = "";
+            G1name = "";
+            G1Contactno = "";
+            G1Email = "";
+            G1Landline = "";
+            G2name = "";
+            G2Contactno = "";
+            G2Email = "";
+            G2Landline = "";
+
+
+
+        }
+
+
+        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String municipality, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline)
+        {
+            Studentid = studentid;
+            Firstname = firstname;
+            Middlename = middlename;
+            Lastname = lastname;
+            Houseno = houseno;
+            Street = street;
+            Municipality = municipality;
+            City = city;
+            Province = province;
+            Zipcode = zipcode;
+            Contactno = contactno;
+            Email = email;
+            Landline = landline;
+            G1name = g1name;
+            G1Contactno = g1Contactno;
+            G1Email = g1Email;
+            G1Landline = g1Landline;
+            
+        }
+
+        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String municipality, String city, String province, String zipcode, String contactno, String email, String landline, String g1name, String g1Contactno, String g1Email, String g1Landline, String g2name, String g2Contactno, String g2Email, String g2Landline)
+        {
+            Studentid = studentid;
+            Firstname = firstname;
+            Middlename = middlename;
+            Lastname = lastname;
+            Houseno = houseno;
+            Street = street;
+            Municipality = municipality;
+            City = city;
+            Province = province;
+            Zipcode = zipcode;
+            Contactno = contactno;
+            Email = email;
+            Landline = landline;
+            G1name = g1name;
+            G1Contactno = g1Contactno;
+            G1Email = g1Email;
+            G1Landline = g1Landline;
+            G2name = g2name;
+            G2Contactno = g2Contactno;
+            G2Email = g2Email;
+            G2Landline = g2Landline;
+        }
 
 
     }
-
-
 }

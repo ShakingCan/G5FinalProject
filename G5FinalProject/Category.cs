@@ -14,7 +14,18 @@ namespace G5FinalProject
         public String CATEGORYNAME { get => Categoryname; set => Categoryname = value; }
         public String CATEGORYDESCRIPTION { get => Categorydescription; set => Categorydescription = value; }
 
-
+        public Category()
+        {
+            CATEGORYIDNO = "";
+            CATEGORYNAME = "";
+            CATEGORYDESCRIPTION = "";
+        }
+        public Category(String categoryIDNo, String categoryname, String categorydescription)
+        {
+            CATEGORYIDNO = categoryIDNo;
+            CATEGORYNAME = categoryname;
+            CATEGORYDESCRIPTION = categorydescription;
+        }
 
 
     }

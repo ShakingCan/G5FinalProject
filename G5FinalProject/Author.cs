@@ -23,6 +23,27 @@ namespace G5FinalProject
 
 
 
+        public Author()
+        {
+            AUTHORIDNO = "";
+            FIRSTNAME = "";
+            MIDDLENAME = "";
+            LASTNAME = "";
+            DATEOFBIRTH = "";
+            GENDER = "";
+        }
+
+        public Author(String authorIDNo, String firstname, String middlename, String lastname, String dateofbirth, String gender)
+        {
+            AUTHORIDNO = authorIDNo;
+            FIRSTNAME = firstname;
+            MIDDLENAME = middlename;
+            LASTNAME = lastname;
+            DATEOFBIRTH = dateofbirth;
+            GENDER = gender;
+        }
+
+
 
 
     }
