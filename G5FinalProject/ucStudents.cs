@@ -14,5 +14,10 @@ namespace G5FinalProject
         {
             InitializeComponent();
         }
+
+        private void ucStudents_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
