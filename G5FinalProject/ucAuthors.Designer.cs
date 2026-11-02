@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Dateofbirthbox = new TextBox();
-            Housenobox = new TextBox();
+            Authoridnobox = new TextBox();
             Lastnamebox = new TextBox();
             Middlenamebox = new TextBox();
             Firstnamebox = new TextBox();
@@ -39,22 +38,17 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            Genderbox = new TextBox();
+            Addauthorbtn = new Button();
+            Dateofbirthpicker = new DateTimePicker();
+            Genderbox = new ComboBox();
             SuspendLayout();
             // 
-            // Dateofbirthbox
+            // Authoridnobox
             // 
-            Dateofbirthbox.Location = new Point(203, 200);
-            Dateofbirthbox.Name = "Dateofbirthbox";
-            Dateofbirthbox.Size = new Size(132, 23);
-            Dateofbirthbox.TabIndex = 42;
-            // 
-            // Housenobox
-            // 
-            Housenobox.Location = new Point(203, 61);
-            Housenobox.Name = "Housenobox";
-            Housenobox.Size = new Size(132, 23);
-            Housenobox.TabIndex = 41;
+            Authoridnobox.Location = new Point(203, 61);
+            Authoridnobox.Name = "Authoridnobox";
+            Authoridnobox.Size = new Size(132, 23);
+            Authoridnobox.TabIndex = 41;
             // 
             // Lastnamebox
             // 
@@ -137,12 +131,31 @@
             label1.TabIndex = 31;
             label1.Text = "First name:";
             // 
+            // Addauthorbtn
+            // 
+            Addauthorbtn.Location = new Point(168, 291);
+            Addauthorbtn.Name = "Addauthorbtn";
+            Addauthorbtn.Size = new Size(75, 23);
+            Addauthorbtn.TabIndex = 44;
+            Addauthorbtn.Text = "Add";
+            Addauthorbtn.UseVisualStyleBackColor = true;
+            Addauthorbtn.Click += Addauthorbtn_Click;
+            // 
+            // Dateofbirthpicker
+            // 
+            Dateofbirthpicker.Location = new Point(203, 200);
+            Dateofbirthpicker.Name = "Dateofbirthpicker";
+            Dateofbirthpicker.Size = new Size(200, 23);
+            Dateofbirthpicker.TabIndex = 45;
+            // 
             // Genderbox
             // 
-            Genderbox.Location = new Point(203, 238);
+            Genderbox.FormattingEnabled = true;
+            Genderbox.Items.AddRange(new object[] { "Male", "Female" });
+            Genderbox.Location = new Point(203, 234);
             Genderbox.Name = "Genderbox";
-            Genderbox.Size = new Size(132, 23);
-            Genderbox.TabIndex = 43;
+            Genderbox.Size = new Size(121, 23);
+            Genderbox.TabIndex = 46;
             // 
             // ucAuthors
             // 
@@ -150,8 +163,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
             Controls.Add(Genderbox);
-            Controls.Add(Dateofbirthbox);
-            Controls.Add(Housenobox);
+            Controls.Add(Dateofbirthpicker);
+            Controls.Add(Addauthorbtn);
+            Controls.Add(Authoridnobox);
             Controls.Add(Lastnamebox);
             Controls.Add(Middlenamebox);
             Controls.Add(Firstnamebox);
@@ -168,8 +182,7 @@
         }
 
         #endregion
-        private TextBox Dateofbirthbox;
-        private TextBox Housenobox;
+        private TextBox Authoridnobox;
         private TextBox Lastnamebox;
         private TextBox Middlenamebox;
         private TextBox Firstnamebox;
@@ -179,6 +192,8 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox Genderbox;
+        private Button Addauthorbtn;
+        private DateTimePicker Dateofbirthpicker;
+        private ComboBox Genderbox;
     }
 }

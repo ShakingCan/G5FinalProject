@@ -13,7 +13,7 @@ namespace G5FinalProject
         //list for search features and updating in database
 
         private List<Student> studentList = new List<Student>();
-        private List<Author> authorList = new List<Author>();
+        
         private List<Books> BooksList = new List<Books>();
         private List<BorrowAndReturn> BorrowAndReturnList = new List<BorrowAndReturn>();
         private List<Category> CategoryList = new List<Category>();
