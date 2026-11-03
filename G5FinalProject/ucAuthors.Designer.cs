@@ -41,6 +41,11 @@
             Addauthorbtn = new Button();
             Dateofbirthpicker = new DateTimePicker();
             Genderbox = new ComboBox();
+            button1 = new Button();
+            Authorlistview = new DataGridView();
+            textBox1 = new TextBox();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)Authorlistview).BeginInit();
             SuspendLayout();
             // 
             // Authoridnobox
@@ -157,11 +162,50 @@
             Genderbox.Size = new Size(121, 23);
             Genderbox.TabIndex = 46;
             // 
+            // button1
+            // 
+            button1.Location = new Point(526, 403);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 48;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // Authorlistview
+            // 
+            Authorlistview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Authorlistview.Location = new Point(526, 166);
+            Authorlistview.Name = "Authorlistview";
+            Authorlistview.Size = new Size(445, 228);
+            Authorlistview.TabIndex = 49;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(526, 136);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(202, 23);
+            textBox1.TabIndex = 50;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(526, 118);
+            label4.Name = "label4";
+            label4.Size = new Size(140, 15);
+            label4.TabIndex = 51;
+            label4.Text = "Search author name or id";
+            // 
             // ucAuthors
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            Controls.Add(label4);
+            Controls.Add(textBox1);
+            Controls.Add(Authorlistview);
+            Controls.Add(button1);
             Controls.Add(Genderbox);
             Controls.Add(Dateofbirthpicker);
             Controls.Add(Addauthorbtn);
@@ -177,6 +221,8 @@
             Controls.Add(label1);
             Name = "ucAuthors";
             Size = new Size(1025, 611);
+            Load += ucAuthors_Load;
+            ((System.ComponentModel.ISupportInitialize)Authorlistview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,5 +241,9 @@
         private Button Addauthorbtn;
         private DateTimePicker Dateofbirthpicker;
         private ComboBox Genderbox;
+        private Button button1;
+        private DataGridView Authorlistview;
+        private TextBox textBox1;
+        private Label label4;
     }
 }
