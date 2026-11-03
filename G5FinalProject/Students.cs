@@ -7,6 +7,7 @@ namespace G5FinalProject
 {
     internal class Student
     {
+        
         private String Studentid;
         public String STUDENTID { get => Studentid; set => Studentid = value; }
 

@@ -44,6 +44,15 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            Addstudentbtn = new Button();
+            Studidnobox = new TextBox();
+            label9 = new Label();
+            Landlinebox = new TextBox();
+            Emailbox = new TextBox();
+            Contactnobox = new TextBox();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
             SuspendLayout();
             // 
             // Zipcodebox
@@ -182,11 +191,97 @@
             label1.TabIndex = 16;
             label1.Text = "First name:";
             // 
+            // Addstudentbtn
+            // 
+            Addstudentbtn.Location = new Point(203, 497);
+            Addstudentbtn.Name = "Addstudentbtn";
+            Addstudentbtn.Size = new Size(75, 23);
+            Addstudentbtn.TabIndex = 32;
+            Addstudentbtn.Text = "Add";
+            Addstudentbtn.UseVisualStyleBackColor = true;
+            Addstudentbtn.Click += Addstudentbtn_Click;
+            // 
+            // Studidnobox
+            // 
+            Studidnobox.Location = new Point(167, 50);
+            Studidnobox.Name = "Studidnobox";
+            Studidnobox.Size = new Size(132, 23);
+            Studidnobox.TabIndex = 34;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 10F);
+            label9.Location = new Point(68, 50);
+            label9.Name = "label9";
+            label9.Size = new Size(98, 19);
+            label9.TabIndex = 33;
+            label9.Text = "Student ID no.";
+            // 
+            // Landlinebox
+            // 
+            Landlinebox.Location = new Point(167, 451);
+            Landlinebox.Name = "Landlinebox";
+            Landlinebox.Size = new Size(132, 23);
+            Landlinebox.TabIndex = 40;
+            // 
+            // Emailbox
+            // 
+            Emailbox.Location = new Point(167, 409);
+            Emailbox.Name = "Emailbox";
+            Emailbox.Size = new Size(132, 23);
+            Emailbox.TabIndex = 39;
+            // 
+            // Contactnobox
+            // 
+            Contactnobox.Location = new Point(167, 373);
+            Contactnobox.Name = "Contactnobox";
+            Contactnobox.Size = new Size(132, 23);
+            Contactnobox.TabIndex = 38;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 10F);
+            label10.Location = new Point(68, 451);
+            label10.Name = "label10";
+            label10.Size = new Size(60, 19);
+            label10.TabIndex = 37;
+            label10.Text = "Landline";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 10F);
+            label11.Location = new Point(68, 409);
+            label11.Name = "label11";
+            label11.Size = new Size(41, 19);
+            label11.TabIndex = 36;
+            label11.Text = "Email";
+            // 
+            // label12
+            // 
+            label12.Font = new Font("Segoe UI", 10F);
+            label12.Location = new Point(68, 373);
+            label12.Name = "label12";
+            label12.Size = new Size(89, 19);
+            label12.TabIndex = 35;
+            label12.Text = "Contact no.";
+            // 
             // ucStudents
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            Controls.Add(Landlinebox);
+            Controls.Add(Emailbox);
+            Controls.Add(Contactnobox);
+            Controls.Add(label10);
+            Controls.Add(label11);
+            Controls.Add(label12);
+            Controls.Add(Studidnobox);
+            Controls.Add(label9);
+            Controls.Add(Addstudentbtn);
             Controls.Add(Zipcodebox);
             Controls.Add(Provincebox);
             Controls.Add(Citybox);
@@ -228,5 +323,14 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button Addstudentbtn;
+        private TextBox Studidnobox;
+        private Label label9;
+        private TextBox Landlinebox;
+        private TextBox Emailbox;
+        private TextBox Contactnobox;
+        private Label label10;
+        private Label label11;
+        private Label label12;
     }
 }
