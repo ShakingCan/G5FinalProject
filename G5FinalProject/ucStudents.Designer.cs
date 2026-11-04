@@ -53,6 +53,9 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
+            Studentlistview = new DataGridView();
+            textBox1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)Studentlistview).BeginInit();
             SuspendLayout();
             // 
             // Zipcodebox
@@ -268,11 +271,29 @@
             label12.TabIndex = 35;
             label12.Text = "Contact no.";
             // 
+            // Studentlistview
+            // 
+            Studentlistview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Studentlistview.Location = new Point(454, 110);
+            Studentlistview.Name = "Studentlistview";
+            Studentlistview.Size = new Size(435, 236);
+            Studentlistview.TabIndex = 41;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(454, 81);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 42;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
             // ucStudents
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            Controls.Add(textBox1);
+            Controls.Add(Studentlistview);
             Controls.Add(Landlinebox);
             Controls.Add(Emailbox);
             Controls.Add(Contactnobox);
@@ -301,6 +322,7 @@
             Name = "ucStudents";
             Size = new Size(1025, 611);
             Load += ucStudents_Load;
+            ((System.ComponentModel.ISupportInitialize)Studentlistview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -332,5 +354,7 @@
         private Label label10;
         private Label label11;
         private Label label12;
+        private DataGridView Studentlistview;
+        private TextBox textBox1;
     }
 }

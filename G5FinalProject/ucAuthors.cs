@@ -26,7 +26,7 @@ namespace G5FinalProject
         {
             try
             {
-                //dissect this later cuz bugging
+                //fixed goodshi
                 bool goodFormat = Regex.IsMatch(Authoridnobox.Text.Trim(), @"^\d+$")
                && Regex.IsMatch(Firstnamebox.Text.Trim(), @"^[A-Za-z]+( [A-Za-z]+){0,2}$")
                && Regex.IsMatch(Middlenamebox.Text.Trim(), @"^[A-Za-z]+( [A-Za-z]+){0,2}$")
