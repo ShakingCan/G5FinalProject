@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Provincebox = new TextBox();
-            Citybox = new TextBox();
-            Streetbox = new TextBox();
-            Housenobox = new TextBox();
-            Lastnamebox = new TextBox();
-            Middlenamebox = new TextBox();
-            Firstnamebox = new TextBox();
+            Statusbox = new TextBox();
+            Availablecopiesbox = new TextBox();
+            Authorbox = new TextBox();
+            Categorybox = new TextBox();
+            ISBNbox = new TextBox();
+            Descriptionbox = new TextBox();
+            Titlebox = new TextBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -42,56 +42,57 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            Addbtn = new Button();
             SuspendLayout();
             // 
-            // Provincebox
+            // Statusbox
             // 
-            Provincebox.Location = new Point(149, 259);
-            Provincebox.Name = "Provincebox";
-            Provincebox.Size = new Size(132, 23);
-            Provincebox.TabIndex = 44;
+            Statusbox.Location = new Point(159, 259);
+            Statusbox.Name = "Statusbox";
+            Statusbox.Size = new Size(132, 23);
+            Statusbox.TabIndex = 44;
             // 
-            // Citybox
+            // Availablecopiesbox
             // 
-            Citybox.Location = new Point(149, 223);
-            Citybox.Name = "Citybox";
-            Citybox.Size = new Size(132, 23);
-            Citybox.TabIndex = 43;
+            Availablecopiesbox.Location = new Point(159, 223);
+            Availablecopiesbox.Name = "Availablecopiesbox";
+            Availablecopiesbox.Size = new Size(132, 23);
+            Availablecopiesbox.TabIndex = 43;
             // 
-            // Streetbox
+            // Authorbox
             // 
-            Streetbox.Location = new Point(149, 185);
-            Streetbox.Name = "Streetbox";
-            Streetbox.Size = new Size(132, 23);
-            Streetbox.TabIndex = 42;
+            Authorbox.Location = new Point(159, 185);
+            Authorbox.Name = "Authorbox";
+            Authorbox.Size = new Size(132, 23);
+            Authorbox.TabIndex = 42;
             // 
-            // Housenobox
+            // Categorybox
             // 
-            Housenobox.Location = new Point(149, 150);
-            Housenobox.Name = "Housenobox";
-            Housenobox.Size = new Size(132, 23);
-            Housenobox.TabIndex = 41;
+            Categorybox.Location = new Point(159, 150);
+            Categorybox.Name = "Categorybox";
+            Categorybox.Size = new Size(132, 23);
+            Categorybox.TabIndex = 41;
             // 
-            // Lastnamebox
+            // ISBNbox
             // 
-            Lastnamebox.Location = new Point(149, 113);
-            Lastnamebox.Name = "Lastnamebox";
-            Lastnamebox.Size = new Size(132, 23);
-            Lastnamebox.TabIndex = 40;
+            ISBNbox.Location = new Point(159, 113);
+            ISBNbox.Name = "ISBNbox";
+            ISBNbox.Size = new Size(132, 23);
+            ISBNbox.TabIndex = 40;
             // 
-            // Middlenamebox
+            // Descriptionbox
             // 
-            Middlenamebox.Location = new Point(149, 80);
-            Middlenamebox.Name = "Middlenamebox";
-            Middlenamebox.Size = new Size(132, 23);
-            Middlenamebox.TabIndex = 39;
+            Descriptionbox.Location = new Point(159, 80);
+            Descriptionbox.Name = "Descriptionbox";
+            Descriptionbox.Size = new Size(132, 23);
+            Descriptionbox.TabIndex = 39;
             // 
-            // Firstnamebox
+            // Titlebox
             // 
-            Firstnamebox.Location = new Point(149, 46);
-            Firstnamebox.Name = "Firstnamebox";
-            Firstnamebox.Size = new Size(132, 23);
-            Firstnamebox.TabIndex = 38;
+            Titlebox.Location = new Point(159, 46);
+            Titlebox.Name = "Titlebox";
+            Titlebox.Size = new Size(132, 23);
+            Titlebox.TabIndex = 38;
             // 
             // label7
             // 
@@ -99,9 +100,9 @@
             label7.Font = new Font("Segoe UI", 10F);
             label7.Location = new Point(50, 259);
             label7.Name = "label7";
-            label7.Size = new Size(61, 19);
+            label7.Size = new Size(47, 19);
             label7.TabIndex = 37;
-            label7.Text = "Province";
+            label7.Text = "Status";
             // 
             // label6
             // 
@@ -109,9 +110,9 @@
             label6.Font = new Font("Segoe UI", 10F);
             label6.Location = new Point(50, 223);
             label6.Name = "label6";
-            label6.Size = new Size(33, 19);
+            label6.Size = new Size(105, 19);
             label6.TabIndex = 36;
-            label6.Text = "City";
+            label6.Text = "Available copies";
             // 
             // label5
             // 
@@ -119,9 +120,9 @@
             label5.Font = new Font("Segoe UI", 10F);
             label5.Location = new Point(50, 185);
             label5.Name = "label5";
-            label5.Size = new Size(45, 19);
+            label5.Size = new Size(52, 19);
             label5.TabIndex = 35;
-            label5.Text = "Street";
+            label5.Text = "Author";
             // 
             // label4
             // 
@@ -129,9 +130,9 @@
             label4.Font = new Font("Segoe UI", 10F);
             label4.Location = new Point(50, 150);
             label4.Name = "label4";
-            label4.Size = new Size(68, 19);
+            label4.Size = new Size(65, 19);
             label4.TabIndex = 34;
-            label4.Text = "House no";
+            label4.Text = "Category";
             // 
             // label3
             // 
@@ -139,9 +140,9 @@
             label3.Font = new Font("Segoe UI", 10F);
             label3.Location = new Point(50, 113);
             label3.Name = "label3";
-            label3.Size = new Size(72, 19);
+            label3.Size = new Size(38, 19);
             label3.TabIndex = 33;
-            label3.Text = "Last name";
+            label3.Text = "ISBN";
             // 
             // label2
             // 
@@ -149,9 +150,9 @@
             label2.Font = new Font("Segoe UI", 10F);
             label2.Location = new Point(50, 80);
             label2.Name = "label2";
-            label2.Size = new Size(89, 19);
+            label2.Size = new Size(78, 19);
             label2.TabIndex = 32;
-            label2.Text = "Middle name";
+            label2.Text = "Description";
             // 
             // label1
             // 
@@ -159,22 +160,32 @@
             label1.Font = new Font("Segoe UI", 10F);
             label1.Location = new Point(50, 46);
             label1.Name = "label1";
-            label1.Size = new Size(76, 19);
+            label1.Size = new Size(37, 19);
             label1.TabIndex = 31;
-            label1.Text = "First name:";
+            label1.Text = "Title:";
+            // 
+            // Addbtn
+            // 
+            Addbtn.Location = new Point(181, 300);
+            Addbtn.Name = "Addbtn";
+            Addbtn.Size = new Size(75, 23);
+            Addbtn.TabIndex = 45;
+            Addbtn.Text = "Add";
+            Addbtn.UseVisualStyleBackColor = true;
             // 
             // ucBooks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
-            Controls.Add(Provincebox);
-            Controls.Add(Citybox);
-            Controls.Add(Streetbox);
-            Controls.Add(Housenobox);
-            Controls.Add(Lastnamebox);
-            Controls.Add(Middlenamebox);
-            Controls.Add(Firstnamebox);
+            Controls.Add(Addbtn);
+            Controls.Add(Statusbox);
+            Controls.Add(Availablecopiesbox);
+            Controls.Add(Authorbox);
+            Controls.Add(Categorybox);
+            Controls.Add(ISBNbox);
+            Controls.Add(Descriptionbox);
+            Controls.Add(Titlebox);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -190,13 +201,13 @@
 
         #endregion
 
-        private TextBox Provincebox;
-        private TextBox Citybox;
-        private TextBox Streetbox;
-        private TextBox Housenobox;
-        private TextBox Lastnamebox;
-        private TextBox Middlenamebox;
-        private TextBox Firstnamebox;
+        private TextBox Statusbox;
+        private TextBox Availablecopiesbox;
+        private TextBox Authorbox;
+        private TextBox Categorybox;
+        private TextBox ISBNbox;
+        private TextBox Descriptionbox;
+        private TextBox Titlebox;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -204,5 +215,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button Addbtn;
     }
 }
