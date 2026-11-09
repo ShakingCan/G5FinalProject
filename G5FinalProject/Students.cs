@@ -7,9 +7,14 @@ namespace G5FinalProject
 {
     internal class Student
     {
-        
-        private String Studentid;
-        public String STUDENTID { get => Studentid; set => Studentid = value; }
+        //for searching purposes
+        private String Address;
+        public String ADDRESS { get => Address; set => Address = value; }
+
+
+
+        private int Studentid;
+        public int STUDENTID { get => Studentid; set => Studentid = value; }
 
         //name section
         private String Firstname;
@@ -49,11 +54,11 @@ namespace G5FinalProject
         //the contact section
         private String Contactno;
         private String Email;
-        private String Landline;
+  
 
         public String CONTACTNO { get => Contactno; set => Contactno = value; }
         public String EMAIL { get => Email; set => Email = value; }
-        public String LANDLINE { get => Landline; set => Landline = value; }
+    
 
 
         
@@ -88,7 +93,7 @@ namespace G5FinalProject
 
         public Student()
         {
-            Studentid = "";
+            Studentid = 0;
             Firstname = "";
             Middlename = "";
             Lastname = "";
@@ -100,17 +105,28 @@ namespace G5FinalProject
             Zipcode = "";
             Contactno = "";
             Email = "";
-            Landline = "";
+            
             
 
 
 
         }
 
+        public Student(int studentid, String fullname, String address, String DOB, String gender, String contactno, String email) {
 
-        public Student(String studentid, String firstname, String middlename, String lastname, String houseno, String street, String city, String province, String zipcode, String contactno, String email, String landline)
+            STUDENTID = studentid;
+            FULLNAME = fullname;
+            
+            ADDRESS  = address;
+            DATEOFBIRTH = DOB;
+            GENDER = gender;
+            CONTACTNO = contactno;
+            EMAIL = EMAIL;
+
+        }
+        public Student(String firstname, String middlename, String lastname, String houseno, String street, String city, String province, String zipcode, String contactno, String email)
         {
-            Studentid = studentid;
+            
             Firstname = firstname;
             Middlename = middlename;
             Lastname = lastname;
@@ -123,7 +139,7 @@ namespace G5FinalProject
             Zipcode = zipcode;
             Contactno = contactno;
             Email = email;
-            Landline = landline;
+          
             
             
         }

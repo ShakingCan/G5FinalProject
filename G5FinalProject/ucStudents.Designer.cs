@@ -45,16 +45,17 @@
             label2 = new Label();
             label1 = new Label();
             Addstudentbtn = new Button();
-            Studidnobox = new TextBox();
-            label9 = new Label();
-            Landlinebox = new TextBox();
             Emailbox = new TextBox();
             Contactnobox = new TextBox();
-            label10 = new Label();
             label11 = new Label();
             label12 = new Label();
             Studentlistview = new DataGridView();
             textBox1 = new TextBox();
+            label9 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            label10 = new Label();
+            Genderbox = new ComboBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)Studentlistview).BeginInit();
             SuspendLayout();
             // 
@@ -196,37 +197,13 @@
             // 
             // Addstudentbtn
             // 
-            Addstudentbtn.Location = new Point(203, 497);
+            Addstudentbtn.Location = new Point(202, 523);
             Addstudentbtn.Name = "Addstudentbtn";
             Addstudentbtn.Size = new Size(75, 23);
             Addstudentbtn.TabIndex = 32;
             Addstudentbtn.Text = "Add";
             Addstudentbtn.UseVisualStyleBackColor = true;
             Addstudentbtn.Click += Addstudentbtn_Click;
-            // 
-            // Studidnobox
-            // 
-            Studidnobox.Location = new Point(167, 50);
-            Studidnobox.Name = "Studidnobox";
-            Studidnobox.Size = new Size(132, 23);
-            Studidnobox.TabIndex = 34;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 10F);
-            label9.Location = new Point(68, 50);
-            label9.Name = "label9";
-            label9.Size = new Size(98, 19);
-            label9.TabIndex = 33;
-            label9.Text = "Student ID no.";
-            // 
-            // Landlinebox
-            // 
-            Landlinebox.Location = new Point(167, 451);
-            Landlinebox.Name = "Landlinebox";
-            Landlinebox.Size = new Size(132, 23);
-            Landlinebox.TabIndex = 40;
             // 
             // Emailbox
             // 
@@ -241,16 +218,6 @@
             Contactnobox.Name = "Contactnobox";
             Contactnobox.Size = new Size(132, 23);
             Contactnobox.TabIndex = 38;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 10F);
-            label10.Location = new Point(68, 451);
-            label10.Name = "label10";
-            label10.Size = new Size(60, 19);
-            label10.TabIndex = 37;
-            label10.Text = "Landline";
             // 
             // label11
             // 
@@ -287,21 +254,68 @@
             textBox1.TabIndex = 42;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 10F);
+            label9.Location = new Point(68, 444);
+            label9.Name = "label9";
+            label9.Size = new Size(65, 19);
+            label9.TabIndex = 43;
+            label9.Text = "Birthdate";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(167, 444);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 44;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 10F);
+            label10.Location = new Point(68, 477);
+            label10.Name = "label10";
+            label10.Size = new Size(54, 19);
+            label10.TabIndex = 45;
+            label10.Text = "Gender";
+            // 
+            // Genderbox
+            // 
+            Genderbox.FormattingEnabled = true;
+            Genderbox.Items.AddRange(new object[] { "Male", "Female" });
+            Genderbox.Location = new Point(167, 477);
+            Genderbox.Name = "Genderbox";
+            Genderbox.Size = new Size(121, 23);
+            Genderbox.TabIndex = 46;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(467, 364);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 47;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ucStudents
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            Controls.Add(button1);
+            Controls.Add(Genderbox);
+            Controls.Add(label10);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label9);
             Controls.Add(textBox1);
             Controls.Add(Studentlistview);
-            Controls.Add(Landlinebox);
             Controls.Add(Emailbox);
             Controls.Add(Contactnobox);
-            Controls.Add(label10);
             Controls.Add(label11);
             Controls.Add(label12);
-            Controls.Add(Studidnobox);
-            Controls.Add(label9);
             Controls.Add(Addstudentbtn);
             Controls.Add(Zipcodebox);
             Controls.Add(Provincebox);
@@ -346,15 +360,16 @@
         private Label label2;
         private Label label1;
         private Button Addstudentbtn;
-        private TextBox Studidnobox;
-        private Label label9;
-        private TextBox Landlinebox;
         private TextBox Emailbox;
         private TextBox Contactnobox;
-        private Label label10;
         private Label label11;
         private Label label12;
         private DataGridView Studentlistview;
         private TextBox textBox1;
+        private Label label9;
+        private DateTimePicker dateTimePicker1;
+        private Label label10;
+        private ComboBox Genderbox;
+        private Button button1;
     }
 }

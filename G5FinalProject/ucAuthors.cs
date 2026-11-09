@@ -80,7 +80,7 @@ namespace G5FinalProject
 
                     //Console.WriteLine("Author successfully added to the list");\
                     string AddQuery = @"INSERT INTO Author (AuthorName, DOB, Gender)
-VALUES (@Name, @DOB, @Gender);   ";
+                    VALUES (@Name, @DOB, @Gender);   ";
                     using (SqlConnection conn = new SqlConnection(connString))
                     {
                         conn.Open();
@@ -95,6 +95,7 @@ VALUES (@Name, @DOB, @Gender);   ";
 
                             cmd.ExecuteNonQuery();
                         }
+                        conn.Close();
                     }
 
 
