@@ -13,7 +13,7 @@ namespace G5FinalProject
 {
     public partial class ucBooks : UserControl
     {
-        static string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LmsDB;Integrated Security=True;TrustServerCertificate=True";
+        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
         public ucBooks()
         {
             InitializeComponent();

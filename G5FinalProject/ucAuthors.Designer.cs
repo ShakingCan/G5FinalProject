@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Authoridnobox = new TextBox();
             Lastnamebox = new TextBox();
             Middlenamebox = new TextBox();
             Firstnamebox = new TextBox();
             label6 = new Label();
             label5 = new Label();
-            Authoridno = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -47,13 +45,6 @@
             label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)Authorlistview).BeginInit();
             SuspendLayout();
-            // 
-            // Authoridnobox
-            // 
-            Authoridnobox.Location = new Point(203, 61);
-            Authoridnobox.Name = "Authoridnobox";
-            Authoridnobox.Size = new Size(132, 23);
-            Authoridnobox.TabIndex = 41;
             // 
             // Lastnamebox
             // 
@@ -95,16 +86,6 @@
             label5.Size = new Size(87, 19);
             label5.TabIndex = 35;
             label5.Text = "Date of birth";
-            // 
-            // Authoridno
-            // 
-            Authoridno.AutoSize = true;
-            Authoridno.Font = new Font("Segoe UI", 10F);
-            Authoridno.Location = new Point(104, 61);
-            Authoridno.Name = "Authoridno";
-            Authoridno.Size = new Size(93, 19);
-            Authoridno.TabIndex = 34;
-            Authoridno.Text = "Author ID no.";
             // 
             // label3
             // 
@@ -193,9 +174,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(526, 118);
             label4.Name = "label4";
-            label4.Size = new Size(140, 15);
+            label4.Size = new Size(113, 15);
             label4.TabIndex = 51;
-            label4.Text = "Search author name or id";
+            label4.Text = "Search author name";
             // 
             // ucAuthors
             // 
@@ -209,13 +190,11 @@
             Controls.Add(Genderbox);
             Controls.Add(Dateofbirthpicker);
             Controls.Add(Addauthorbtn);
-            Controls.Add(Authoridnobox);
             Controls.Add(Lastnamebox);
             Controls.Add(Middlenamebox);
             Controls.Add(Firstnamebox);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(Authoridno);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -228,13 +207,11 @@
         }
 
         #endregion
-        private TextBox Authoridnobox;
         private TextBox Lastnamebox;
         private TextBox Middlenamebox;
         private TextBox Firstnamebox;
         private Label label6;
         private Label label5;
-        private Label Authoridno;
         private Label label3;
         private Label label2;
         private Label label1;

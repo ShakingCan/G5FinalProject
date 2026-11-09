@@ -6,7 +6,7 @@ namespace G5FinalProject
 {
     internal class Author
     {
-        private String AuthorIDNo;
+        private int AuthorIDNo;
         private String Firstname;
         private String Middlename;
         private String Lastname;
@@ -14,7 +14,7 @@ namespace G5FinalProject
         private String Gender;
         private String Fullname;
 
-        public String AUTHORIDNO { get => AuthorIDNo; set => AuthorIDNo = value; }
+        public int AUTHORIDNO { get => AuthorIDNo; set => AuthorIDNo = value; }
         public String FIRSTNAME { get => Firstname; set => Firstname = value; }
         public String MIDDLENAME { get => Middlename; set => Middlename = value; }
         public String LASTNAME { get => Lastname; set => Lastname = value; }
@@ -26,7 +26,7 @@ namespace G5FinalProject
 
         public Author()
         {
-            AUTHORIDNO = "";
+            AUTHORIDNO = 0;
             FIRSTNAME = "";
             MIDDLENAME = "";
             LASTNAME = "";
@@ -34,9 +34,18 @@ namespace G5FinalProject
             GENDER = "";
         }
 
-        public Author(String authorIDNo, String firstname, String middlename, String lastname, String dateofbirth, String gender)
+        public Author(int authorid, String fullname, String dateofbirth, String gender)
         {
-            AUTHORIDNO = authorIDNo;
+            AUTHORIDNO = authorid;
+            FULLNAME = fullname;
+            DATEOFBIRTH = dateofbirth;
+            GENDER = gender;
+           
+        }
+
+        public Author( String firstname, String middlename, String lastname, String dateofbirth, String gender)
+        {
+            
             FIRSTNAME = firstname;
             MIDDLENAME = middlename;
             LASTNAME = lastname;
@@ -44,7 +53,7 @@ namespace G5FinalProject
             GENDER = gender;
             FULLNAME = firstname + " " + middlename + " " + lastname;
         }
-
+        
 
         public void SearchAuthorByID(String authorid)
         {
