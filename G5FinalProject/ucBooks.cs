@@ -22,12 +22,26 @@ namespace G5FinalProject
         private void ucBooks_Load(object sender, EventArgs e)
         {
             LoadData();
+            books_data.EnableHeadersVisualStyles = false;
+
+            books_data.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(80, 107, 50);
+
+            books_data.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            books_data.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(80, 107, 50);
+
+            books_data.ColumnHeadersDefaultCellStyle.SelectionForeColor =
+                Color.MintCream;
         }
 
         public void LoadData()
         {
-            string loadQuery = @"SELECT ISBN, Title, Description, Category, Author, AvailCopies, Status FROM Books;";
+            string loadQuery = @"SELECT ISBN, Title, Description, Category, Author, AvailCopies AS 'Avl Copies', Status FROM Books;";
             string loadCategories = @"SELECT * FROM Category";
+            string loadAuthors = @"SELECT * FROM Author";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
@@ -37,24 +51,43 @@ namespace G5FinalProject
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     books_data.DataSource = dt;
-                   
+
                 }
-                using(SqlDataAdapter cda = new SqlDataAdapter(loadCategories, conn))
+                using (SqlDataAdapter cda = new SqlDataAdapter(loadCategories, conn))
                 {
                     DataTable cdt = new DataTable();
                     cda.Fill(cdt);
-                    category_cbox.DataSource = cdt ;
+                    category_cbox.DataSource = cdt;
                     category_cbox.DisplayMember = "CategoryName";
                     category_cbox.ValueMember = "CategoryID";
                     category_cbox.SelectedIndex = -1;
+
+                    if (category_cbox.SelectedIndex == -1)
+                    {
+                        category_cbox.Text = "Select category...";
+                    }
+                }
+                using (SqlDataAdapter ada = new SqlDataAdapter(loadAuthors, conn))
+                {
+                    DataTable adt = new DataTable();
+                    ada.Fill(adt);
+                    author_cbox.DataSource = adt;
+                    author_cbox.DisplayMember = "AuthorName";
+                    author_cbox.ValueMember = "AuthorID";
+                    author_cbox.SelectedIndex = -1;
+
+                    if (author_cbox.SelectedIndex == -1)
+                    {
+                        author_cbox.Text = "Select author...";
+                    }
                 }
                 conn.Close();
             }
             status_cbox.Items.Add("Good Condition");
             status_cbox.Items.Add("Damaged");
 
-           
-            
+
+
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
@@ -129,6 +162,9 @@ namespace G5FinalProject
             }
         }
 
-        
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
