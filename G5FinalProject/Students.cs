@@ -111,6 +111,10 @@ namespace G5FinalProject
 
 
         }
+        public Student(int id)
+        {
+            STUDENTID = id;
+        }
 
         public Student(int studentid, String fullname, String address, String DOB, String gender, String contactno, String email) {
 
