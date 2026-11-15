@@ -15,10 +15,22 @@ namespace G5FinalProject
 
         private List<int> ISBN = new List<int>();
         private List<int> ID = new List<int>();
+
+        private List<Books> bISBN = new List<Books>();
+        private List<Student> sID = new List<Student>();
+
+        private List<BorrowAndReturn> br = new List<BorrowAndReturn>();
+
+        
         DateTime bd;
-        public void LoadStudentsID()
+
+
+  
+       
+        public void loadMainData()
         {
-            string loadQuery = @"SELECT StudentID FROM Students;";
+
+            string loadQuery = @"SELECT * FROM BorrowsReturns;";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
@@ -27,48 +39,91 @@ namespace G5FinalProject
 
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    ID = dt.AsEnumerable()
-                    .Select(row => row.Field<int>("StudentID"))
-                    .ToList();
+                    br = dt.AsEnumerable()
+                     .Select(row => new BorrowAndReturn
+                     {
+                         ISBN = row.Field<int>("ISBN"),
+                         STUDENTIDNO = row.Field<int>("StudentID"),
+                         BORROWDATE = row.Field<DateTime?>("BorrowDate")?.ToString("yyyy-MM-dd") ?? string.Empty,
+                         RETURNDATE = row.Field<DateTime?>("ReturnDate")?.ToString("yyyy-MM-dd") ?? string.Empty,
+                        
+                         REMARKSORCOMMENTS = row.Field<String>("Remarks")
 
+                     })
+                    .ToList();
+                    BorrowRecordView.DataSource = br;
 
                 }
                 conn.Close();
             }
 
         }
+
+
+        public void LoadStudentsID()
+         {
+             string loadID = @"SELECT StudentID FROM Students;";
+             using (SqlConnection conn = new SqlConnection(connString))
+             {
+                 conn.Open();
+                 using (SqlDataAdapter idapt = new SqlDataAdapter(loadID, conn))
+                 {
+
+                     DataTable dt = new DataTable();
+                    idapt.Fill(dt);
+                     sID = dt.AsEnumerable()
+                          .Select(row => new Student
+                          {
+                              STUDENTID = row.Field<int>("StudentID"),
+                              
+                          })
+                    .ToList();
+                    ID = sID.Select(s => s.STUDENTID).ToList();
+                  
+                }
+                 conn.Close();
+             }
+
+         } 
         public void LoadBooksISBN()
         {
-            string loadQuery = @"SELECT ISBN FROM Books;";
+            string loadISBN = @"SELECT ISBN FROM Books;";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
-                using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
+                using (SqlDataAdapter da = new SqlDataAdapter(loadISBN, conn))
                 {
 
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    ISBN = dt.AsEnumerable()
-                     .Select(row => row.Field<int>("ISBN"))
-                     .ToList();
+                    bISBN = dt.AsEnumerable()
+                       .Select(row => new Books
+                       {
+                           ISBN1 = row.Field<int>("ISBN")
 
-
+                       })
+                    .ToList();
+                    ISBN = bISBN.Select(s => s.ISBN1).ToList();
+                    
                 }
                 conn.Close();
             }
 
         }
 
+       
         public void refreshList()
         {
+            
+
             foreach (int id in ID)
             {
-                Studentidnobox.Items.Add(id);
+                Studentidnobox.Items.Add(id.ToString());
 
             }
             foreach (int isbn in ISBN)
             {
-                ISBNbox.Items.Add(isbn);
+                ISBNbox.Items.Add(isbn.ToString());
 
             }
         }
@@ -83,11 +138,11 @@ namespace G5FinalProject
 
         private void ucBorrows_Returns_Load(object sender, EventArgs e)
         {
-            refreshList();
+            
             LoadBooksISBN();
             LoadStudentsID();
-
-
+            refreshList();
+            loadMainData();
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
@@ -100,12 +155,13 @@ namespace G5FinalProject
                 return;
             }
 
-
+           
             string AddQuery = @"INSERT INTO BorrowsReturns (ISBN , StudentID , BorrowDate )
                         VALUES (@ISBN,@StudentID , @BorrowDate);   ";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
+              
                 using (SqlCommand cmd = new SqlCommand(AddQuery, conn))
                 {
 
@@ -117,6 +173,8 @@ namespace G5FinalProject
 
                     cmd.ExecuteNonQuery();
                 }
+                MessageBox.Show("Successfully  recorded");
+                loadMainData();
                 conn.Close();
             }
 
@@ -130,11 +188,17 @@ namespace G5FinalProject
 
         private void Applybtn_Click(object sender, EventArgs e)
         {
-            if (BorrowRecordView.CurrentRow != null && BorrowRecordView.CurrentRow.Cells["BorrowDate"].Value != DBNull.Value)
+            if (BorrowRecordView.CurrentRow == null)
             {
+                MessageBox.Show("Please select a record first.");
+                return;
+            }
 
+            if (BorrowRecordView.CurrentRow.Cells["BorrowDate"].Value != DBNull.Value)
+            {
                 bd = Convert.ToDateTime(BorrowRecordView.CurrentRow.Cells["BorrowDate"].Value).Date;
             }
+
             bool valid = Returndatepicker.Value.Date >= bd;
 
             if (!valid)
@@ -143,29 +207,38 @@ namespace G5FinalProject
                 return;
             }
 
+           
+            int isbn = Convert.ToInt32(BorrowRecordView.CurrentRow.Cells["ISBN"].Value);
+            int studentId = Convert.ToInt32(BorrowRecordView.CurrentRow.Cells["STUDENTIDNO"].Value);
+            DateTime Borrowday = Convert.ToDateTime(BorrowRecordView.CurrentRow.Cells["BORROWDATE"].Value);
 
-            string AddQuery = @"INSERT INTO BorrowsReturns (ReturnDate ,Remarks )
-                        VALUES (@ReturnDate,@Remarks);   ";
+
+            string updateQuery = @"UPDATE BorrowsReturns 
+                           SET ReturnDate = @ReturnDate, Remarks = @Remarks 
+                           WHERE ISBN = @ISBN AND StudentID = @StudentID;";
+
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(AddQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                 {
-
-
-
+                   
                     cmd.Parameters.AddWithValue("@ReturnDate", Returndatepicker.Value.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@Remarks", Remarksbox.Text);
 
+                    cmd.Parameters.AddWithValue("@Remarks", string.IsNullOrWhiteSpace(Remarksbox.Text) ? "n/a" : Remarksbox.Text);
+
+                    cmd.Parameters.AddWithValue("@BD", Borrowday);
+                    cmd.Parameters.AddWithValue("@ISBN", isbn);
+                    cmd.Parameters.AddWithValue("@StudentID", studentId);
 
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();
             }
 
-
-
-
+            MessageBox.Show("Successfully updated record");
+            loadMainData();
+            EditPanel.Visible = false;
         }
 
         private void Cancelbtn_Click(object sender, EventArgs e)

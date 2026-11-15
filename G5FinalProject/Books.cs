@@ -8,7 +8,7 @@ namespace G5FinalProject
     {
         private String Title;
         private String Briefdescription;
-        private String ISBN;
+        private int ISBN;
         private String Category;
         private String Author;
         private int Availablecopies;
@@ -16,26 +16,32 @@ namespace G5FinalProject
 
         public String TITLE { get => Title; set => Title = value; }
         public String BRIEFDESCRIPTION { get => Briefdescription; set => Briefdescription = value; }
-        public String ISBN1 { get => ISBN; set => ISBN = value; }
+        public int ISBN1 { get => ISBN; set => ISBN = value; }
         public String CATEGORY { get => Category; set => Category = value; }
         public String AUTHOR { get => Author; set => Author = value; }
         public int AVAILABLECOPIES { get => Availablecopies; set => Availablecopies = value; }
         public String STATUS { get => Status; set => Status = value; }
 
+
+       
         public Books()
         {
             TITLE = "";
             BRIEFDESCRIPTION = "";
-            ISBN1 = "";
+            ISBN1 = 0;
             CATEGORY = "";
             AUTHOR = "";
             AVAILABLECOPIES = 0;
             STATUS = "";
         }
+        public Books(int isbn)
+        {
+            ISBN1 = isbn;
+
+        }
 
 
-
-        public Books(String title, String briefdescription, String isbn, String category, String author, int availablecopies, String status)
+        public Books(String title, String briefdescription, int isbn, String category, String author, int availablecopies, String status)
         {
                 
             TITLE = title;

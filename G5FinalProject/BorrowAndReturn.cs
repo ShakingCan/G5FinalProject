@@ -7,31 +7,31 @@ namespace G5FinalProject
 {
     internal class BorrowAndReturn
     {
-        private String Studentidno;
+        private int Studentidno;
         private String Borrowdate;
         private String Returndate;
         private String Remarksorcomments;
-        private String Isbn;
+        private int Isbn;
 
 
-        public String STUDENTIDNO { get => Studentidno; set => Studentidno = value; }
+        public int STUDENTIDNO { get => Studentidno; set => Studentidno = value; }
         public String BORROWDATE { get => Borrowdate; set => Borrowdate = value; }
         public String RETURNDATE { get => Returndate; set => Returndate = value; }
         public String REMARKSORCOMMENTS { get => Remarksorcomments; set => Remarksorcomments = value; }
-        public String ISBN { get => Isbn; set => Isbn = value; }
+        public int ISBN { get => Isbn; set => Isbn = value; }
 
         public BorrowAndReturn()
         {
 
-            Studentidno = "";
+            Studentidno = 0;
             Borrowdate = "";
             Returndate = "";
             Remarksorcomments = "";
-            Isbn = "";
+            Isbn = 0;
 
         }
 
-        public BorrowAndReturn(String studentidno, String borrowdate, String returndate, String remarksorcomments, String isbn)
+        public BorrowAndReturn(int isbn, int studentidno, String borrowdate, String returndate, String remarksorcomments)
         {
             Studentidno = studentidno;
             Borrowdate = borrowdate;

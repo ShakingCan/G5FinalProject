@@ -42,9 +42,9 @@
             Addbtn = new Button();
             editbtn = new Button();
             EditPanel = new Panel();
+            label6 = new Label();
             Cancelbtn = new Button();
             Applybtn = new Button();
-            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)BorrowRecordView).BeginInit();
             EditPanel.SuspendLayout();
             SuspendLayout();
@@ -181,6 +181,16 @@
             EditPanel.TabIndex = 52;
             EditPanel.Visible = false;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 10F);
+            label6.Location = new Point(133, 24);
+            label6.Name = "label6";
+            label6.Size = new Size(195, 19);
+            label6.TabIndex = 53;
+            label6.Text = "Input return date and remarks";
+            // 
             // Cancelbtn
             // 
             Cancelbtn.Location = new Point(253, 119);
@@ -201,28 +211,18 @@
             Applybtn.UseVisualStyleBackColor = true;
             Applybtn.Click += Applybtn_Click;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 10F);
-            label6.Location = new Point(133, 24);
-            label6.Name = "label6";
-            label6.Size = new Size(195, 19);
-            label6.TabIndex = 53;
-            label6.Text = "Input return date and remarks";
-            // 
             // ucBorrows_Returns
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            Controls.Add(Borrowdatepicker);
             Controls.Add(EditPanel);
             Controls.Add(editbtn);
             Controls.Add(Addbtn);
             Controls.Add(ISBNbox);
             Controls.Add(Studentidnobox);
             Controls.Add(BorrowRecordView);
-            Controls.Add(Borrowdatepicker);
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
