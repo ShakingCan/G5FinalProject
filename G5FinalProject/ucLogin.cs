@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace G5FinalProject
 {
-    public partial class ucLogin : UserControl
+    public partial class ucLogin : Form
     {
 
         static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
@@ -37,7 +37,8 @@ namespace G5FinalProject
                     if (matchCount > 0)
                     {
                         MessageBox.Show("Login successful");
-                        this.Visible = false;
+                        MainForm mf = new MainForm();
+                        mf.ShowDialog();
                     }
                     else
                     {
@@ -60,8 +61,7 @@ namespace G5FinalProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ucRegister c = new ucRegister();
-            c.Visible = true;
+            ucRegister1.Visible = true;
         }
     }
 }

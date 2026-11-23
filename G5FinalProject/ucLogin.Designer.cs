@@ -35,6 +35,7 @@
             Loginbtn = new Button();
             label3 = new Label();
             button1 = new Button();
+            ucRegister1 = new ucRegister();
             SuspendLayout();
             // 
             // Usernamebox
@@ -99,11 +100,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // ucRegister1
+            // 
+            ucRegister1.BackColor = Color.Honeydew;
+            ucRegister1.Dock = DockStyle.Fill;
+            ucRegister1.Location = new Point(0, 0);
+            ucRegister1.Name = "ucRegister1";
+            ucRegister1.Size = new Size(1009, 572);
+            ucRegister1.TabIndex = 7;
+            ucRegister1.Visible = false;
+            // 
             // ucLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            ClientSize = new Size(1009, 572);
+            Controls.Add(ucRegister1);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(Loginbtn);
@@ -112,7 +125,6 @@
             Controls.Add(label1);
             Controls.Add(Usernamebox);
             Name = "ucLogin";
-            Size = new Size(1025, 611);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,5 +138,6 @@
         private Button Loginbtn;
         private Label label3;
         private Button button1;
+        private ucRegister ucRegister1;
     }
 }

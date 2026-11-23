@@ -24,7 +24,7 @@ namespace G5FinalProject
             bool filled = !string.IsNullOrWhiteSpace(Usernamebox.Text) && !string.IsNullOrWhiteSpace(Passwordbox.Text);
             bool valid = Regex.IsMatch(Usernamebox.Text, @"^(?=.*[a-zA-Z])[a-zA-Z0-9_]{12,}$") && Regex.IsMatch(Passwordbox.Text, @"^(?=.*[a-zA-Z])[a-zA-Z0-9_]{12,}$");
 
-            if(filled && valid)
+            if (filled && valid)
             {
                 string AddQuery = @"INSERT INTO UsersTable (Username, Password)
                     VALUES (@Username, @Password);   ";
@@ -45,5 +45,7 @@ namespace G5FinalProject
 
 
         }
+
+       
     }
 }
