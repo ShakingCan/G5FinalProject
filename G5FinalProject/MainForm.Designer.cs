@@ -222,7 +222,7 @@
             UCPanel.Location = new Point(250, 0);
             UCPanel.Name = "UCPanel";
             UCPanel.Size = new Size(1014, 681);
-            UCPanel.TabIndex = 2;
+            UCPanel.TabIndex = 0;
             // 
             // MainForm
             // 
