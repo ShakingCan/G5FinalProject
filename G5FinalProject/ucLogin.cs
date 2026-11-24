@@ -37,6 +37,7 @@ namespace G5FinalProject
                     if (matchCount > 0)
                     {
                         MessageBox.Show("Login successful");
+                        this.Visible = false;
                         MainForm mf = new MainForm();
                         mf.ShowDialog();
                     }

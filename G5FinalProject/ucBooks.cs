@@ -18,9 +18,43 @@ namespace G5FinalProject
         {
             InitializeComponent();
         }
+        private int count;
+        public int GetCOUNT()
+        {
+            return count;
+        }
+
+        public void SetCOUNT(int value)
+        {
+            count = value;
+        }
+
+        public void LoadTotalBooks()
+        {
+            string loadQuery = @"SELECT COUNT(*) FROM Books;";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(loadQuery, conn))
+                {
+
+
+                    var result = cmd.ExecuteScalar();
+                    SetCOUNT(Convert.ToInt32(result));
+                    total_books_count.Text = GetCOUNT().ToString();
+
+
+
+                }
+                conn.Close();
+            }
+
+        }
+
 
         private void ucBooks_Load(object sender, EventArgs e)
         {
+
             LoadData();
             books_data.EnableHeadersVisualStyles = false;
 
@@ -35,6 +69,7 @@ namespace G5FinalProject
 
             books_data.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                 Color.MintCream;
+            LoadTotalBooks();
         }
 
         public void LoadData()
@@ -96,8 +131,8 @@ namespace G5FinalProject
             {
                 conn.Open();
 
-                string insertQuery = @"INSERT INTO Books (Title, Description, ISBN, Category, Author, AvailCopies, Status) 
-                                      VALUES (@Title, @Description, @ISBN, @Category, @Author, @AvailCopies, @Status);";
+                string insertQuery = @"INSERT INTO Books (Title, Description, ISBN, Category, Author, AvailCopies, Status,DateAdded) 
+                                      VALUES (@Title, @Description, @ISBN, @Category, @Author, @AvailCopies, @Status, @DateAdded);";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                 {
                     try
@@ -141,7 +176,7 @@ namespace G5FinalProject
                         cmd.Parameters.AddWithValue("@Author", author_cbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@AvailCopies", int.Parse(Availablecopiesbox.Text.Trim()));
                         cmd.Parameters.AddWithValue("@Status", status_cbox.Text.Trim());
-
+                        cmd.Parameters.AddWithValue("@DateAdded", DateTime.Today);
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Book Created!", "Successful",
