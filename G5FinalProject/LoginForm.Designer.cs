@@ -1,6 +1,6 @@
 ﻿namespace G5FinalProject
 {
-    partial class ucLogin
+    partial class LoginForm
     {
         /// <summary> 
         /// Required designer variable.

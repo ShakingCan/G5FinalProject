@@ -13,7 +13,6 @@ namespace G5FinalProject
 {
     public partial class ucRegister : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
         public ucRegister()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace G5FinalProject
             {
                 string AddQuery = @"INSERT INTO UsersTable (Username, Password)
                     VALUES (@Username, @Password);   ";
-                using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(AddQuery, conn))

@@ -12,7 +12,7 @@ namespace G5FinalProject
 {
     public partial class ucCategories : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
+
         public ucCategories()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace G5FinalProject
         public void LoadData()
         {
             string loadQuery = @"SELECT CONCAT('CAT-1', CategoryID) AS CategoryID, CategoryName, CategoryDesc FROM Category;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -38,7 +38,7 @@ namespace G5FinalProject
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
 

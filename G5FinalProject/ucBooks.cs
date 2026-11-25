@@ -13,7 +13,7 @@ namespace G5FinalProject
 {
     public partial class ucBooks : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
+    
         public ucBooks()
         {
             InitializeComponent();
@@ -29,19 +29,36 @@ namespace G5FinalProject
             count = value;
         }
 
-        public void LoadTotalBooks()
+        public void LoadHeaders()
         {
-            string loadQuery = @"SELECT COUNT(*) FROM Books;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            string load1Query = @"SELECT COUNT(*) FROM Books;";
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand(loadQuery, conn))
+                using (SqlCommand cmd = new SqlCommand(load1Query, conn))
                 {
 
 
                     var result = cmd.ExecuteScalar();
                     SetCOUNT(Convert.ToInt32(result));
                     total_books_count.Text = GetCOUNT().ToString();
+
+
+
+                }
+                conn.Close();
+            }
+            string load2Query = @"SELECT COUNT(*) FROM Books WHERE AvailableCopies = 0;";
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(load2Query, conn))
+                {
+
+
+                    var result = cmd.ExecuteScalar();
+                    SetCOUNT(Convert.ToInt32(result));
+                    total_copies_count.Text = GetCOUNT().ToString();
 
 
 
@@ -69,15 +86,18 @@ namespace G5FinalProject
 
             books_data.ColumnHeadersDefaultCellStyle.SelectionForeColor =
                 Color.MintCream;
-            LoadTotalBooks();
+            books_data.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            LoadHeaders();
+            ClearGridSelection(books_data);
         }
 
         public void LoadData()
         {
-            string loadQuery = @"SELECT ISBN, Title, Description, Category, Author, AvailCopies AS 'Avl Copies', Status FROM Books;";
+            string loadQuery = @"SELECT ISBN, Title, Description, Category, Author, AvailableCopies AS 'Avl Copies', Status FROM Books;";
             string loadCategories = @"SELECT * FROM Category";
             string loadAuthors = @"SELECT * FROM Author";
-            using (SqlConnection conn = new SqlConnection(connString))
+            books_data.ClearSelection();
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -117,6 +137,10 @@ namespace G5FinalProject
                     }
                 }
                 conn.Close();
+                if (status_cbox.SelectedIndex == -1)
+                {
+                    status_cbox.Text = "Select status...";
+                }
             }
             status_cbox.Items.Add("Good Condition");
             status_cbox.Items.Add("Damaged");
@@ -127,12 +151,12 @@ namespace G5FinalProject
 
         private void Addbtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
 
-                string insertQuery = @"INSERT INTO Books (Title, Description, ISBN, Category, Author, AvailCopies, Status,DateAdded) 
-                                      VALUES (@Title, @Description, @ISBN, @Category, @Author, @AvailCopies, @Status, @DateAdded);";
+                string insertQuery = @"INSERT INTO Books (Title, Description, ISBN, Category, Author, AvailableCopies, Status,DateAdded) 
+                                      VALUES (@Title, @Description, @ISBN, @Category, @Author, @AvailableCopies, @Status, @DateAdded);";
                 using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                 {
                     try
@@ -151,6 +175,7 @@ namespace G5FinalProject
                             return;
                         }
 
+                       
                         // ISBN validation (10 or 13 digits, allowing hyphens)
                         if (!Regex.IsMatch(ISBNbox.Text.Trim(),
                             @"^(?:\d{9}[\dXx]|\d{13}|\d{1,5}(?:-\d{1,7}){1,4})$"))
@@ -161,7 +186,7 @@ namespace G5FinalProject
                         }
 
                         // Available copies validation (whole numbers only)
-                        if (!Regex.IsMatch(Availablecopiesbox.Text.Trim(), @"^\d+$"))
+                        if (!Regex.IsMatch(Availablecopiesbox.Text.Trim(), @"^\d+$") && Availablecopiesbox.Text == "0")
                         {
                             MessageBox.Show("Available copies must be a valid whole number.",
                                 "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -174,7 +199,7 @@ namespace G5FinalProject
                         cmd.Parameters.AddWithValue("@ISBN", ISBNbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@Category", category_cbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@Author", author_cbox.Text.Trim());
-                        cmd.Parameters.AddWithValue("@AvailCopies", int.Parse(Availablecopiesbox.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@AvailableCopies", int.Parse(Availablecopiesbox.Text.Trim()));
                         cmd.Parameters.AddWithValue("@Status", status_cbox.Text.Trim());
                         cmd.Parameters.AddWithValue("@DateAdded", DateTime.Today);
                         cmd.ExecuteNonQuery();
@@ -201,5 +226,14 @@ namespace G5FinalProject
         {
 
         }
+        private void ClearGridSelection(DataGridView DataGridView)
+        {
+            BeginInvoke(new Action(() =>
+            {
+                DataGridView.CurrentCell = null;
+                DataGridView.ClearSelection();
+            }));
+        }
+
     }
 }

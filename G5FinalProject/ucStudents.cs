@@ -13,7 +13,6 @@ namespace G5FinalProject
 {
     public partial class ucStudents : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
         private List<Student> studentList = new List<Student>();
         private List<Student> proxySearch = new List<Student>();
 
@@ -35,7 +34,7 @@ namespace G5FinalProject
         public void LoadData()
         {
             string loadQuery = @"SELECT * FROM Students;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -109,7 +108,7 @@ namespace G5FinalProject
 
                     string AddQuery = @"INSERT INTO Students (StudentName, Address, DOB ,Gender, ContactNo , Email  )
                         VALUES (@Name,@Address , @DOB, @Gender, @Contactno, @Email);   ";
-                    using (SqlConnection conn = new SqlConnection(connString))
+                    using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
                     {
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand(AddQuery, conn))

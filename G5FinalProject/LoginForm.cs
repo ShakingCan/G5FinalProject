@@ -9,11 +9,10 @@ using System.Windows.Forms;
 
 namespace G5FinalProject
 {
-    public partial class ucLogin : Form
+    public partial class LoginForm : Form
     {
 
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
-        public ucLogin()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -24,7 +23,7 @@ namespace G5FinalProject
 
             string query = "SELECT COUNT(1) FROM UsersTable WHERE Username = @username AND Password = @password";
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

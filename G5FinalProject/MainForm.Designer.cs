@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel2 = new Panel();
+            logout_btn = new Button();
             btn_students = new Button();
             btn_authors = new Button();
             btn_categories = new Button();
@@ -49,6 +50,8 @@
             // panel2
             // 
             panel2.BackColor = Color.DarkOliveGreen;
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.Controls.Add(logout_btn);
             panel2.Controls.Add(btn_students);
             panel2.Controls.Add(btn_authors);
             panel2.Controls.Add(btn_categories);
@@ -62,8 +65,27 @@
             panel2.Size = new Size(250, 681);
             panel2.TabIndex = 1;
             // 
+            // logout_btn
+            // 
+            logout_btn.BackColor = Color.Transparent;
+            logout_btn.Dock = DockStyle.Bottom;
+            logout_btn.FlatAppearance.BorderSize = 0;
+            logout_btn.FlatStyle = FlatStyle.Flat;
+            logout_btn.Font = new Font("Palatino Linotype", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logout_btn.ForeColor = Color.Honeydew;
+            logout_btn.Image = (Image)resources.GetObject("logout_btn.Image");
+            logout_btn.ImageAlign = ContentAlignment.MiddleLeft;
+            logout_btn.Location = new Point(0, 621);
+            logout_btn.Name = "logout_btn";
+            logout_btn.Padding = new Padding(25, 0, 45, 0);
+            logout_btn.Size = new Size(250, 60);
+            logout_btn.TabIndex = 14;
+            logout_btn.Text = "Log Out";
+            logout_btn.UseVisualStyleBackColor = false;
+            // 
             // btn_students
             // 
+            btn_students.BackColor = Color.Transparent;
             btn_students.Dock = DockStyle.Top;
             btn_students.FlatAppearance.BorderSize = 0;
             btn_students.FlatStyle = FlatStyle.Flat;
@@ -77,11 +99,12 @@
             btn_students.Size = new Size(250, 60);
             btn_students.TabIndex = 13;
             btn_students.Text = "Students";
-            btn_students.UseVisualStyleBackColor = true;
+            btn_students.UseVisualStyleBackColor = false;
             btn_students.Click += btn_students_Click;
             // 
             // btn_authors
             // 
+            btn_authors.BackColor = Color.Transparent;
             btn_authors.Dock = DockStyle.Top;
             btn_authors.FlatAppearance.BorderSize = 0;
             btn_authors.FlatStyle = FlatStyle.Flat;
@@ -95,11 +118,12 @@
             btn_authors.Size = new Size(250, 60);
             btn_authors.TabIndex = 12;
             btn_authors.Text = "Authors";
-            btn_authors.UseVisualStyleBackColor = true;
+            btn_authors.UseVisualStyleBackColor = false;
             btn_authors.Click += btn_authors_Click;
             // 
             // btn_categories
             // 
+            btn_categories.BackColor = Color.Transparent;
             btn_categories.Dock = DockStyle.Top;
             btn_categories.FlatAppearance.BorderSize = 0;
             btn_categories.FlatStyle = FlatStyle.Flat;
@@ -113,11 +137,12 @@
             btn_categories.Size = new Size(250, 60);
             btn_categories.TabIndex = 11;
             btn_categories.Text = "Categories";
-            btn_categories.UseVisualStyleBackColor = true;
+            btn_categories.UseVisualStyleBackColor = false;
             btn_categories.Click += btn_categories_Click;
             // 
             // btn_brrwsretrns
             // 
+            btn_brrwsretrns.BackColor = Color.Transparent;
             btn_brrwsretrns.Dock = DockStyle.Top;
             btn_brrwsretrns.FlatAppearance.BorderSize = 0;
             btn_brrwsretrns.FlatStyle = FlatStyle.Flat;
@@ -132,11 +157,12 @@
             btn_brrwsretrns.TabIndex = 10;
             btn_brrwsretrns.Text = "Borrows / Returns";
             btn_brrwsretrns.TextAlign = ContentAlignment.MiddleRight;
-            btn_brrwsretrns.UseVisualStyleBackColor = true;
+            btn_brrwsretrns.UseVisualStyleBackColor = false;
             btn_brrwsretrns.Click += btn_brrwsretrns_Click;
             // 
             // btn_books
             // 
+            btn_books.BackColor = Color.Transparent;
             btn_books.Dock = DockStyle.Top;
             btn_books.FlatAppearance.BorderSize = 0;
             btn_books.FlatStyle = FlatStyle.Flat;
@@ -150,11 +176,12 @@
             btn_books.Size = new Size(250, 60);
             btn_books.TabIndex = 9;
             btn_books.Text = "Books";
-            btn_books.UseVisualStyleBackColor = true;
+            btn_books.UseVisualStyleBackColor = false;
             btn_books.Click += btn_books_Click;
             // 
             // btn_dashboard
             // 
+            btn_dashboard.BackColor = Color.Transparent;
             btn_dashboard.Dock = DockStyle.Top;
             btn_dashboard.FlatAppearance.BorderSize = 0;
             btn_dashboard.FlatStyle = FlatStyle.Flat;
@@ -168,12 +195,12 @@
             btn_dashboard.Size = new Size(250, 60);
             btn_dashboard.TabIndex = 8;
             btn_dashboard.Text = "Dashboard";
-            btn_dashboard.UseVisualStyleBackColor = true;
+            btn_dashboard.UseVisualStyleBackColor = false;
             btn_dashboard.Click += btn_dashboard_Click;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.DarkOliveGreen;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox1);
@@ -258,5 +285,6 @@
         private Label label1;
         private Label label2;
         private Panel UCPanel;
+        private Button logout_btn;
     }
 }

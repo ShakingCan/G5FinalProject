@@ -15,7 +15,7 @@ namespace G5FinalProject
 
     public partial class ucAuthors : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
+      
         private List<Author> authorList = new List<Author>();
         private List<Author> proxySearch = new List<Author>();
 
@@ -33,7 +33,7 @@ namespace G5FinalProject
         public void LoadData()
         {
             string loadQuery = @"SELECT * FROM Author;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -81,7 +81,7 @@ namespace G5FinalProject
                     //Console.WriteLine("Author successfully added to the list");\
                     string AddQuery = @"INSERT INTO Author (AuthorName, DOB, Gender)
                     VALUES (@Name, @DOB, @Gender);   ";
-                    using (SqlConnection conn = new SqlConnection(connString))
+                    using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
                     {
                         conn.Open();
                         using (SqlCommand cmd = new SqlCommand(AddQuery, conn))

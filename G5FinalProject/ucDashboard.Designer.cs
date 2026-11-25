@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDashboard));
             label1 = new Label();
             panel1 = new Panel();
             Totalbookscountlbl = new Label();
             panel2 = new Panel();
+            Recentbooklist = new DataGridView();
             recentlyaddedcount = new Label();
             label3 = new Label();
-            Recentbooklist = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Recentbooklist).BeginInit();
@@ -45,7 +46,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 0);
             label1.Name = "label1";
-            label1.Size = new Size(126, 15);
+            label1.Size = new Size(127, 15);
             label1.TabIndex = 0;
             label1.Text = "Total number of books";
             // 
@@ -77,6 +78,14 @@
             panel2.Size = new Size(378, 270);
             panel2.TabIndex = 2;
             // 
+            // Recentbooklist
+            // 
+            Recentbooklist.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Recentbooklist.Location = new Point(36, 67);
+            Recentbooklist.Name = "Recentbooklist";
+            Recentbooklist.Size = new Size(240, 150);
+            Recentbooklist.TabIndex = 2;
+            // 
             // recentlyaddedcount
             // 
             recentlyaddedcount.AutoSize = true;
@@ -95,19 +104,13 @@
             label3.TabIndex = 0;
             label3.Text = "Recently added books";
             // 
-            // Recentbooklist
-            // 
-            Recentbooklist.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Recentbooklist.Location = new Point(36, 67);
-            Recentbooklist.Name = "Recentbooklist";
-            Recentbooklist.Size = new Size(240, 150);
-            Recentbooklist.TabIndex = 2;
-            // 
             // ucDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ucDashboard";

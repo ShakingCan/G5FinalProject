@@ -35,11 +35,11 @@ namespace G5FinalProject
         }
         private void ResetBtnColor(Button btn1, Button btn2, Button btn3, Button btn4, Button btn5)
         {
-            btn1.BackColor = Color.DarkOliveGreen;
-            btn2.BackColor = Color.DarkOliveGreen;
-            btn3.BackColor = Color.DarkOliveGreen;
-            btn4.BackColor = Color.DarkOliveGreen;
-            btn5.BackColor = Color.DarkOliveGreen;
+            btn1.BackColor = Color.Transparent;
+            btn2.BackColor = Color.Transparent;
+            btn3.BackColor = Color.Transparent;
+            btn4.BackColor = Color.Transparent;
+            btn5.BackColor = Color.Transparent;
             //My own logic so i brute forced it wallahi
         }
 

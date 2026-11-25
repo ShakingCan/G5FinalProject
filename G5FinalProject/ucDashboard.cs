@@ -11,7 +11,6 @@ namespace G5FinalProject
 {
     public partial class ucDashboard : UserControl
     {
-        static string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
         private int count;
         private int recentCount;
         private List<Books> proxySearch = new List<Books>();
@@ -50,7 +49,7 @@ namespace G5FinalProject
         public void LoadTotalBooks()
         {
             string loadQuery = @"SELECT COUNT(*) FROM Books;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(loadQuery, conn))
@@ -74,7 +73,7 @@ namespace G5FinalProject
             //string loadQuery = @"SELECT * FROM Books WHERE CAST(DateAdded AS DATE) >= CAST(GETDATE() AS DATE) - 7;";
             string loadQuery = @"SELECT * FROM Books WHERE CAST(DateAdded AS DATE) >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));";
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -108,7 +107,7 @@ namespace G5FinalProject
             //string loadQuery = @"SELECT COUNT(*) FROM Books WHERE CAST(DateAdded AS DATE) >= CAST(GETDATE() AS DATE) - 7;";
             string loadQuery = @"SELECT COUNT(*) FROM Books WHERE CAST(DateAdded AS DATE) >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));";
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(loadQuery, conn))

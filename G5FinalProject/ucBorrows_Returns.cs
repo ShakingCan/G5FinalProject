@@ -11,7 +11,6 @@ namespace G5FinalProject
 {
     public partial class ucBorrows_Returns : UserControl
     {
-        string connString = "Data Source=DESKTOP-3UB02P4;Initial Catalog=LmsDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=\"SQL Server Management Studio\";Command Timeout=0";
 
         private List<int> ISBN = new List<int>();
         private List<int> ID = new List<int>();
@@ -24,14 +23,11 @@ namespace G5FinalProject
         
         DateTime bd;
 
-
-  
-       
         public void loadMainData()
         {
 
             string loadQuery = @"SELECT * FROM BorrowsReturns;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadQuery, conn))
@@ -63,7 +59,7 @@ namespace G5FinalProject
         public void LoadStudentsID()
          {
              string loadID = @"SELECT StudentID FROM Students;";
-             using (SqlConnection conn = new SqlConnection(connString))
+             using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
              {
                  conn.Open();
                  using (SqlDataAdapter idapt = new SqlDataAdapter(loadID, conn))
@@ -88,7 +84,7 @@ namespace G5FinalProject
         public void LoadBooksISBN()
         {
             string loadISBN = @"SELECT ISBN FROM Books;";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlDataAdapter da = new SqlDataAdapter(loadISBN, conn))
@@ -158,7 +154,7 @@ namespace G5FinalProject
            
             string AddQuery = @"INSERT INTO BorrowsReturns (ISBN , StudentID , BorrowDate )
                         VALUES (@ISBN,@StudentID , @BorrowDate);   ";
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
               
@@ -217,7 +213,7 @@ namespace G5FinalProject
                            SET ReturnDate = @ReturnDate, Remarks = @Remarks 
                            WHERE ISBN = @ISBN AND StudentID = @StudentID;";
 
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(DBConnection.connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
